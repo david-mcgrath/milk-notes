@@ -1,13 +1,14 @@
 {
   "name": "milk-notes",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "author": "David McGrath",
+  "homepage": "https://github.com/david-mcgrath/milk-notes/",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
+    "ionic": "ionic",
+    "start": "ionic serve",
+    "build": "ionic build",
+    "watch": "ionic build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint"
   },
@@ -80,5 +81,5 @@
     "ts-node": "^8.3.0",
     "typescript": "~5.0.2"
   },
-  "description": "An Ionic project"
+  "description": "A note taking app using milkdown"
 }
