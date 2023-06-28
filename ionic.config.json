@@ -1,0 +1,7 @@
+{
+  "name": "milk-notes",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
