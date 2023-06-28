@@ -1,0 +1,14 @@
+:host ::ng-deep .milkdown {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+:host ::ng-deep .editor {
+    width: 100%;
+    min-height: 100%;
+    max-width: unset;
+    flex: 1;
+    padding: 1em;
+}
