@@ -17,6 +17,7 @@ import { MilkdownComponent } from '../components/milkdown/milkdown.component';
 export class DetailsPage implements OnInit {
   note: Note;
   loaded: boolean;
+  focused: boolean;
 
   constructor(private route: ActivatedRoute, private notesService: NotesService, private navCtrl: NavController) {
     this.note = {
@@ -25,6 +26,7 @@ export class DetailsPage implements OnInit {
       content: '',
     };
     this.loaded = false;
+    this.focused = false;
   }
 
   ngOnInit(): void {

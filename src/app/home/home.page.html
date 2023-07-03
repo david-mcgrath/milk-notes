@@ -3,11 +3,6 @@
     <ion-title>
       Milk Notes
     </ion-title>
-    <ion-buttons slot="end">
-      <ion-button (click)="addNote()">
-        <ion-icon slot="icon-only" name="clipboard"></ion-icon>
-      </ion-button>
-    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -28,4 +23,10 @@
       <ion-label>{{ note.title }}</ion-label>
     </ion-item>
   </ion-list>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="addNote()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

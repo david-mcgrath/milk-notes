@@ -21,6 +21,7 @@ import { callCommand } from '@milkdown/utils';
 import { EditorView } from '@milkdown/prose/view';
 import { EditorState, PluginView } from '@milkdown/prose/state';
 import { Ctx } from '@milkdown/ctx';
+import { IonicModule } from '@ionic/angular';
 
 @Component({
   standalone: true,
@@ -33,7 +34,8 @@ import { Ctx } from '@milkdown/ctx';
       useExisting: forwardRef(() => MilkdownComponent),
       multi: true,
     }
-  ]
+  ],
+  imports: [IonicModule],
 })
 export class MilkdownComponent  implements AfterViewInit, ControlValueAccessor {
   @ViewChild('editorRef') editorRef!: ElementRef;
@@ -41,11 +43,15 @@ export class MilkdownComponent  implements AfterViewInit, ControlValueAccessor {
 
   @Input() ngModel = '';
   @Output() ngModelChange = new EventEmitter<string>();
+  @Output() focus = new EventEmitter();
+  @Output() blur = new EventEmitter();
   onChange: (_: unknown) => void = () => {};
   onTouched: () => void = () => {};
 
   private disabled: boolean = false;
   private initialised: boolean = false;
+
+  focused: boolean = false;
 
   constructor() { }
   writeValue(value: string): void {
@@ -84,6 +90,8 @@ export class MilkdownComponent  implements AfterViewInit, ControlValueAccessor {
             this.ngModelChange.next(md);
           }
         });
+        ctx.get(listenerCtx).focus(() => this.onFocus());
+        ctx.get(listenerCtx).blur(() => this.onBlur());
       })
       .config(nord)
       .use(commonmark)
@@ -96,5 +104,16 @@ export class MilkdownComponent  implements AfterViewInit, ControlValueAccessor {
         replaceAll(this.ngModel || '')(this.editor.ctx);
         this.initialised = true;
       })
+  }
+
+  onFocus(): void {
+    this.focused = true;
+    console.log('focused');
+    this.focus.emit();
+  }
+  onBlur(): void {
+    this.focused = false;
+    console.log('blur');
+    this.blur.emit();
   }
 }

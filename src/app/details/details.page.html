@@ -20,10 +20,18 @@
   </ion-header>
   <app-milkdown
     (ngModelChange)="saveNote()"
-    [(ngModel)]="note.content"></app-milkdown>
+    [(ngModel)]="note.content"
+    (focus)="focused = true"
+    (blur)="focused = false"></app-milkdown>
   <!-- <ion-textarea
     (input)="saveNote()"
     [(ngModel)]="note.content"
     placeholder="What's on your mind?">
   </ion-textarea> -->
 </ion-content>
+
+<ion-footer *ngIf="focused">
+  <ion-toolbar>
+    <button>test</button>
+  </ion-toolbar>
+</ion-footer>
