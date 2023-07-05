@@ -30,6 +30,7 @@ export class AppComponent {
           document.documentElement.style.height = heightPx;
         }
         else {
+          this.visualViewportHeight = null;
           document.body.style.height = '';
           document.documentElement.style.height = '';
         }
