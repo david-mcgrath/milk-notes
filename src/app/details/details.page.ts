@@ -6,13 +6,26 @@ import { Note } from '../types/note';
 import { ActivatedRoute } from '@angular/router';
 import { NotesService } from '../services/notes.service';
 import { MilkdownComponent } from '../components/milkdown/milkdown.component';
+import { animate, trigger, transition, style } from '@angular/animations';
 
 @Component({
   selector: 'app-details',
   templateUrl: './details.page.html',
   styleUrls: ['./details.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, MilkdownComponent]
+  imports: [IonicModule, CommonModule, FormsModule, MilkdownComponent],
+  animations: [
+    trigger('slideInOut', [
+      transition(':enter', [
+        style({ opacity: 0, transform: 'translateY(100%)' }),
+        animate('300ms ease-in-out', style({ opacity: 1, transform: 'translateY(0)' })),
+      ]),
+      transition(':leave', [
+        style({ opacity: 1, transform: 'translateY(0)' }),
+        animate('300ms ease-in-out', style({ opacity: 0, transform: 'translateY(100%)' })),
+      ]),
+    ])
+  ]
 })
 export class DetailsPage implements OnInit {
   note: Note;

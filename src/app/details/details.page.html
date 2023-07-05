@@ -30,7 +30,7 @@
   </ion-textarea> -->
 </ion-content>
 
-<ion-footer *ngIf="focused">
+<ion-footer *ngIf="focused" @slideInOut>
   <ion-toolbar>
     <ion-button>
       <ion-icon slot="icon-only" name="rocket"></ion-icon>
