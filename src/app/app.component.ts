@@ -37,7 +37,7 @@ export class AppComponent {
       }
     }
     //this.visualViewportHeight = heightPx;
-    //document.body.style.height = heightPx;
+    document.body.style.height = height;
     document.documentElement.style.height = height;
   }
 }
