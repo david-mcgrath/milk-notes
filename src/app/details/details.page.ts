@@ -22,7 +22,7 @@ import { animate, trigger, transition, style } from '@angular/animations';
       ]),
       transition(':leave', [
         style({ opacity: 1, transform: 'translateY(0)' }),
-        animate('300ms ease-in-out', style({ opacity: 0, transform: 'translateY(100%)' })),
+        animate('150ms ease-in-out', style({ opacity: 0, transform: 'translateY(100%)' })),
       ]),
     ])
   ]
