@@ -30,7 +30,7 @@ export class AppComponent {
     // TODO: If the visual viewport matches the layout viewport, don't set the height (will default to 100% based on CSS)
     let height = '';
     if (window.visualViewport) {
-      const visualHeight = window['testVisualViewport'] ? window.visualViewport.height / 2 : window.visualViewport.height;
+      const visualHeight = !!window['testVisualViewport'] ? window.visualViewport.height / 2 : window.visualViewport.height;
       const delta = visualHeight - window.innerHeight;
       if (Math.abs(delta) >= 1 && visualHeight >= 1) {
         height = `${visualHeight}px`;
