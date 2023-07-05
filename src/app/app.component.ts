@@ -15,11 +15,19 @@ export class AppComponent {
     // TODO: Also check if on mobile, mobile interface will be slightly different
     // Need a service that handles this & is mobile, clean it up
     // On mobile show formatting toolbar above soft keyboard, on desktop show at top
+
+    // Somewhat works, but I can scroll the excess space into view
+    // Need to fix... ensure the total height is reduced.s
     if (window.visualViewport) {
       window.visualViewport.addEventListener('resize', (event) => {
         const height = window.visualViewport?.height;
         if (height) {
-          this.visualViewportHeight = `${height}px`;
+          const heightPx = `${height}px`;
+          this.visualViewportHeight = heightPx;
+          document.body.style.height = heightPx;
+        }
+        else {
+          document.body.style.height = '';
         }
       });
     }
