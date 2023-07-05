@@ -17,6 +17,9 @@ export class AppComponent {
         this.resize();
       });
       this.resize();
+      document.body.addEventListener('scroll', (event) => {
+        event.stopPropagation();
+      }, { passive: false });
     }
   }
   private resize() {
